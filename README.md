@@ -28,7 +28,7 @@ Essa consolidação pode ser feita, tanto para ser consumida pelo ACL for Window
 
 **6° Passo:** Os passos 1 até 5 devem ser repetidos até ser importados e consolidados todos os arquivos (a partir do segundo arquivo até o último os dados serão inseridos ao fim da base consolidada).
 
-**Observação:** Existem detalhes que serão melhor explicados dentro dos scripts publicados no diretório do projeto no Github.
+**Observação:** Existem detalhes que serão melhor explicados dentro dos scripts publicados no diretório do projeto.
 
 ### **Exemplo de consolidação**
 #### Arquivos originais
