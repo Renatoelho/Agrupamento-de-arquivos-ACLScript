@@ -17,11 +17,17 @@ Essa consolidação pode ser feita, tanto para ser consumida pelo ACL for Window
 ### **Lógica da consolidação** 
 
 **1°** Passo Listar os arquivos que serão consolidados.
+
 **2°** Passo Contar quantos são os arquivos encontrados no diretório.
+
 **3°** Passo Criar uma variável de controle para interromper o comando WHILE ao fim do processo.
+
 **4º** Passo Começar a importação do primeiro arquivo, podendo ser aplicadas algumas regras de tratamento de dados e criado um campo computado para identificarmos a origem dos registros.
+
 **5º** Passo Esses dados serão consolidados em um arquivo delimitado, pois isso permitirá que essa base possa ser utilizada por qualquer aplicação.
+
 **6°** Passo Os passos 1 até 5 devem ser repetidos até ser importados e consolidados todos os arquivos (a partir do segundo arquivo até o último os dados serão inseridos ao fim da base consolidada).
+
 **Observação:** Existem detalhes que serão melhor explicados dentro dos scripts publicados no diretório do projeto no Github.
 
 ### **Exemplo de consolidação**
