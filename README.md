@@ -40,3 +40,5 @@ Essa consolidação pode ser feita, tanto para ser consumida pelo *ACL for Windo
 #### Arquivo consolidado
 
 ![](https://github.com/Renatoelho/Agrupamento-de-arquivos-ACLScript/blob/master/04-prints/print_relatorio_vendas_2020_consolidado.JPG?raw=true)
+
+
