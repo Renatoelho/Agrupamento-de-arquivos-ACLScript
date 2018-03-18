@@ -1,0 +1,29 @@
+COMMENT --- Identifica qual é o arquivo da vez, e segue o fluxo de consolidação ---
+
+OPEN ARQUIVOS
+LOCATE RECORD VAR_CONTROLE
+VAR_NOME_ARQUIVO = ALLTRIM(FILE_NAME)
+
+COMMENT --- Limpa a BASE_TEMP e apaga o arquivo 'relatorio_vendas_2020_consolidado.del' para não ocorrer duplicidades de registros ---
+
+IF VAR_CONTROLE = 1 DELETE "BASE_TEMP.fil" OK 
+IF VAR_CONTROLE = 1 DELETE "%VAR_LOCAL_RESULSET%relatorio_vendas_2020_consolidado.del" OK 
+
+COMMENT --- Faz a importação dos arquivos um a um ---
+
+IMPORT DELIMITED TO BASE_TEMP "BASE_TEMP.fil" FROM "%VAR_LOCAL_ARQUIVOS%%VAR_NOME_ARQUIVO%" 0 SEPARATOR ";" QUALIFIER NONE CONSECUTIVE STARTLINE 1 KEEPTITLE FIELD "data" C AT 1 DEC 0 WID 8 PIC "" AS "" FIELD "id_venda" C AT 9 DEC 0 WID 5 PIC "" AS "" FIELD "id_vendedor" C AT 14 DEC 0 WID 5 PIC "" AS "" FIELD "cod_loja" C AT 19 DEC 0 WID 5 PIC "" AS "" FIELD "cod_prod" C AT 24 DEC 0 WID 6 PIC "" AS "" FIELD "qtd_itens" N AT 30 DEC 0 WID 2 PIC "" AS "" FIELD "vlr_venda" N AT 32 DEC 2 WID 7 PIC "" AS "" 
+
+COMMENT --- Inicia o processo de consolidação dos dados em um arquivo delimitado por ponto e vírgula ';' ---
+
+OPEN BASE_TEMP
+
+COMMENT --- Caso, seja a primeira execução é mantido o cabeçalho original ---
+
+IF VAR_CONTROLE = 1 EXPORT FIELDS VAR_NOME_ARQUIVO AS "origem" data id_venda id_vendedor cod_loja cod_prod qtd_itens vlr_venda DELIMITED TO "%VAR_LOCAL_RESULSET%relatorio_vendas_2020_consolidado" KEEPTITLE SEPARATOR ";" QUALIFIER NONE APPEND
+IF VAR_CONTROLE <> 1 EXPORT FIELDS VAR_NOME_ARQUIVO AS "origem" data id_venda id_vendedor cod_loja cod_prod qtd_itens vlr_venda DELIMITED TO "%VAR_LOCAL_RESULSET%relatorio_vendas_2020_consolidado"  SEPARATOR ";" QUALIFIER NONE APPEND
+
+COMMENT --- Ao final de cada execução é incrementado 1 a variável de controle para que o próximo arquivo seja importado ---
+
+VAR_CONTROLE = VAR_CONTROLE + 1
+
+COMMENT --- Fim do script ---

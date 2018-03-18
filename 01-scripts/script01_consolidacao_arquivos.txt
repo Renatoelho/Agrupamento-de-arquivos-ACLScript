@@ -1,0 +1,39 @@
+SET SAFETY OFF
+
+COMMENT --- Variáveis úteis para execução dos scripts ---
+
+COMMENT --- Aqui é inserido o local onde estão os arquivos Ex.:'C:\user\databases\' ---
+
+VAR_LOCAL_ARQUIVOS = "C:\user\databases\"
+
+COMMENT --- Aqui é onde deve ser salvo o resultado Ex.:'C:\user\resultsets\' ---
+
+VAR_LOCAL_RESULSET = "C:\user\resultsets\"
+
+COMMENT ---  Essa variável é responsável por controlar todo o processo --- 
+
+VAR_CONTROLE = 1
+
+COMMENT --- Lista os arquivos que serão consolidados ---
+
+DIRECTORY "%VAR_LOCAL_ARQUIVOS%*.txt" TO ARQUIVOS SUPPRESS
+
+COMMENT --- Conta quantos os arquivos ---
+
+OPEN ARQUIVOS
+COUNT 
+
+COMMENT --- Executa o segundo script (script02_consolidacao_arquivos) de consolidação uma vez para cada arquivo ---
+
+DO script02_consolidacao_arquivos WHILE VAR_CONTROLE <= COUNT1
+
+COMMENT --- Apaga todas as bases criadas durante o processamento ---
+
+DELETE FORMAT BASE_TEMP OK
+DELETE FORMAT ARQUIVOS OK
+DELETE "BASE_TEMP.fil" OK
+DELETE "ARQUIVOS.fil" OK
+
+COMMENT --- Fim do script ---
+
+SET SAFETY ON 
