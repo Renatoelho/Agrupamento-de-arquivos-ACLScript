@@ -1,4 +1,4 @@
-SET SAFETY OFF
+﻿SET SAFETY OFF
 
 COMMENT --- Variáveis úteis para execução dos scripts ---
 
@@ -18,7 +18,7 @@ COMMENT --- Lista os arquivos que serão consolidados ---
 
 DIRECTORY "%VAR_LOCAL_ARQUIVOS%*.txt" TO ARQUIVOS SUPPRESS
 
-COMMENT --- Conta quantos os arquivos ---
+COMMENT --- Conta os arquivos ---
 
 OPEN ARQUIVOS
 COUNT 

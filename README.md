@@ -14,6 +14,8 @@ Essa consolidação pode ser feita, tanto para ser consumida pelo *ACL for Windo
 - DBF
 - Outras
 
+----------
+
 ### **Lógica da consolidação** 
 
 **1° Passo:** Listar os arquivos que serão consolidados.
@@ -28,14 +30,17 @@ Essa consolidação pode ser feita, tanto para ser consumida pelo *ACL for Windo
 
 **6° Passo:** Os passos 1 até 5 devem ser repetidos até ser importados e consolidados todos os arquivos (a partir do segundo arquivo até o último os dados serão inseridos ao fim da base consolidada).
 
-**Observação:** Existem detalhes que serão melhor explicados dentro dos *scripts* publicados no diretório do projeto.
+> **Observação:** Existem detalhes que serão melhor explicados dentro dos *scripts* publicados no diretório do projeto.
 
-### **Exemplo da consolidação**
+----------
+
 #### Arquivos originais
 
 ![](https://github.com/Renatoelho/Agrupamento-de-arquivos-ACLScript/blob/master/04-prints/print_relatorio_vendas_202001.JPG?raw=true)
 ![](https://github.com/Renatoelho/Agrupamento-de-arquivos-ACLScript/blob/master/04-prints/print_relatorio_vendas_202002.JPG?raw=true)
 ![](https://github.com/Renatoelho/Agrupamento-de-arquivos-ACLScript/blob/master/04-prints/print_relatorio_vendas_202003.JPG?raw=true)
+
+----------
 
 #### Arquivo consolidado
 
